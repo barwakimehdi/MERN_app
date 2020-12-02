@@ -10,18 +10,21 @@ function App() {
   return (
     <div className="App">
       <h2>Workshop MERN</h2>
-      <Button
-        inverted
-        color="blue"
-        content="Blue"
-        onClick={() => dispatch(toggleFalse())}
-      >
-        <Link to="/add">Add Person </Link>
-      </Button>
-      <Button inverted color="blue" content="Blue">
-        <Link to="/">Person List </Link>
-      </Button>
-
+      <Link to="/add">
+        <Button
+          inverted
+          color="blue"
+          content="Blue"
+          onClick={() => dispatch(toggleFalse())}
+        >
+          Add Person
+        </Button>
+      </Link>
+      <Link to="/">
+        <Button inverted color="blue" content="Blue">
+          Person List
+        </Button>
+      </Link>
       <Switch>
         <Route exact path="/" component={PersonList} />
         <Route path={["/add", "/edit/:id"]} component={Add} />

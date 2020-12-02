@@ -28,3 +28,17 @@ export const getPerson = (id) => (dispatch) => {
     .then((res) => dispatch({ type: GET_PERSON, payload: res.data.response }))
     .catch((err) => console.log(err));
 };
+
+export const postPerson = (user) => (dispatch) => {
+  axios
+    .post(`/api/person/`, user)
+    .then((res) => dispatch(getPersons()))
+    .catch((err) => console.log(err));
+};
+
+export const editPerson = (id, user) => (dispatch) => {
+  axios
+    .put(`/api/person/${id}`, user)
+    .then((res) => dispatch(getPersons()))
+    .catch((err) => console.log(err));
+};
